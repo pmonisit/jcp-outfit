@@ -7,13 +7,19 @@ import {Link} from 'react-router-dom'
 export default function AdminView() {
 
 	const [allProducts, setAllProducts] = useState([])
-
 	const { dispatch } = useContext(UserContext)
 
-	const [show, setShow] = useState(false);
+	const [productName, setProductName] = useState('')
+	const [description, setDescription] = useState('')
+	const [price, setPrice] = useState(0)
+	const [qty, setQty] = useState(1)
 
-	 const handleClose = () => setShow(false);
-	 const handleShow = () => setShow(true);
+
+
+  /* MODAL - UPDATE PRODUCT */
+	const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
 	const fetchData = () => {
@@ -30,8 +36,7 @@ export default function AdminView() {
 			dispatch({type: "USER", payload: true})
 
 			setAllProducts( response.map(product => {
-
-
+				
 				return(
 					<tr key={product._id}>
 						<td>{product.productName}</td>
@@ -40,9 +45,7 @@ export default function AdminView() {
 						<td>{product.qty}</td>
 						<td>{product.isActive ? "Active" : "Inactive"}</td>
 						<td>
-							<Button variant="primary" onClick={handleShow}>
-							        Update
-							</Button>
+							<Link className="btn btn-success m-2" to={`/update-product/${product._id}`} onClick>Update Product</Link>
 							{
 								product.isActive ?
 									<Button 
@@ -79,7 +82,7 @@ export default function AdminView() {
 
 	}, [])
 
-	const handleArchive = (productId) =>{
+	const handleArchive = (productId) => {
 		fetch(`http://localhost:4000/api/products/${productId}/archive`, {
 			method: "PATCH",
 			headers:{
@@ -118,7 +121,7 @@ export default function AdminView() {
 		})
 	}
 
-	const handleDelete = (productId) =>{
+	const handleDelete = (productId) => {
 		
 		fetch(`http://localhost:4000/api/products/${productId}/delete-product`, {
 			method: "DELETE",
@@ -138,13 +141,16 @@ export default function AdminView() {
 		})
 	}
 
+	
+
 	return(
 		<Fragment>
 		<Container className="container">
 			<h1 className="my-5 text-center">Product Dashboard</h1>
 			<div className="text-center">
 				<Link className="btn btn-primary m-2" to={`/add-product`}>Add Product</Link>
-				<Link className="btn btn-info m-2" to={`/user-dashboard`}>User Dashboard</Link>
+				
+				<Link className="btn btn-dark m-2" to={`/user-dashboard`}>User Dashboard</Link>
 			</div>
 			<Table>
 				<thead>
@@ -163,53 +169,8 @@ export default function AdminView() {
 				</tbody>
 			</Table>
 		</Container>
-
-	{/* Start of Modal to Update Product */}
-		<Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-        >
-        <Modal.Header>
-          <Modal.Title>Update Product</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>     
-  			<Form>
-  				<Form.Group className="mb-3">
-  					<Form.Label>Product name</Form.Label>
-  			    	<Form.Control defaultValue=""/>
-  				</Form.Group>
-
-  				<Form.Group className="mb-3">
-  			    	<Form.Label>Description</Form.Label>
-  			    	<Form.Control as="textarea" rows={3}/>
-  				</Form.Group>
-
-  				<Form.Group className="mb-3">
-  			    	<Form.Label>Price</Form.Label>
-  			    	<Form.Control type="Number"/>
-  				</Form.Group>  
-
-  				<Form.Group className="mb-3">
-  			    	<Form.Label>Quantity</Form.Label>
-  			    	<Form.Control type="Number"/>
-  				</Form.Group>      		
-  			</Form>
-          		
-        </Modal.Body>
-       <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="success">Save</Button>
-        </Modal.Footer>
-
-      	</Modal>
-
-      		
+      	
 		</Fragment>
 
 	)
-
 }

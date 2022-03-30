@@ -39,9 +39,7 @@ export default function UserDashboard() {
 						<td>{user.email}</td>
 						<td>{user.isAdmin ? "Admin" : "Non-Admin"}</td>
 						<td>
-							<Button variant="primary" onClick={handleShow}>
-							        Update
-							</Button>
+							<Link className="btn btn-success m-2" to={`/update-user/${user._id}`} onClick>Update User Info</Link>
 							{
 								user.isAdmin ?
 									<Button 

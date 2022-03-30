@@ -20,7 +20,7 @@ export default function ProductCard({productProp}){
 		    			<Card.Text>
 		      				Php: {price}
 		    			</Card.Text>
-		    			<Button variant="primary">Go somewhere</Button>
+		    			<Button variant="primary">Add to cart</Button>
 		  				</Card.Body>
 						</Card>
 					</Col>		

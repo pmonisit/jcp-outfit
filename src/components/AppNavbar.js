@@ -7,7 +7,6 @@ const token = localStorage.getItem('token')
 export default function AppNavBar(){
 
 	const { state, dispatch } = useContext(UserContext)
-	console.log(state)
 
 	useEffect( () => {
 		if(token){
