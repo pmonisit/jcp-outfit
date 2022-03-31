@@ -17,7 +17,7 @@ export default function UserDashboard() {
 
 
 	const fetchData = () => {
-		fetch(`http://localhost:4000/api/users`, {
+		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/users`, {
 			method: "GET",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -77,7 +77,7 @@ export default function UserDashboard() {
 	}, [])
 
 	const handleArchive = (userId) =>{
-		fetch(`http://localhost:4000/api/users/${userId}/setAsCustomer`, {
+		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/users/${userId}/setAsCustomer`, {
 			method: "PATCH",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -97,7 +97,7 @@ export default function UserDashboard() {
 
 	const handleUnarchive = (userId) =>{
 		
-		fetch(`http://localhost:4000/api/users/${userId}/setAsAdmin`, {
+		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/users/${userId}/setAsAdmin`, {
 			method: "PATCH",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -117,7 +117,7 @@ export default function UserDashboard() {
 
 	const handleDelete = (userId) =>{
 		console.log(userId)
-		fetch(`http://localhost:4000/api/users/${userId}/delete-user`, {
+		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/users/${userId}/delete-user`, {
 			method: "DELETE",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`

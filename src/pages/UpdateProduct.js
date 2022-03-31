@@ -25,7 +25,7 @@ export default function UpdateProduct (){
 
 	const handleUpdate = (id) => {
 
-		fetch(`http://localhost:4000/api/products/update-product/${product._id}`,{
+		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products/update-product/${product._id}`,{
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

@@ -29,7 +29,7 @@ export default function AddCourse(){
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
-		fetch('http://localhost:4000/api/products/add-product',{
+		fetch('https://enigmatic-basin-10137.herokuapp.com/add-product',{
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

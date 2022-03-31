@@ -14,7 +14,7 @@ export default function Products(){
 
 	useEffect( () => {
 		if(admin === "false" || admin === null){
-			fetch(`http://localhost:4000/api/products/active-products`, {
+			fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products/active-products`, {
 				method: "GET",
 				headers:{
 					"Authorization": `Bearer ${token}`

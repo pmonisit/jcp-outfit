@@ -30,7 +30,7 @@ export default function Register(){
 	const registerUser = (e) => {
 		e.preventDefault()
 
-		fetch('http://localhost:4000/api/users/email-exists', {
+		fetch('https://enigmatic-basin-10137.herokuapp.com/api/users/email-exists', {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -44,7 +44,7 @@ export default function Register(){
 			// console.log(response)	//false
 			if(!response){
 				//send request to register
-				fetch('http://localhost:4000/api/users/register', {
+				fetch('https://enigmatic-basin-10137.herokuapp.com/api/users/register', {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"

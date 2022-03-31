@@ -23,7 +23,7 @@ export default function AdminView() {
 
 
 	const fetchData = () => {
-		fetch(`http://localhost:4000/api/products`, {
+		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products`, {
 			method: "GET",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -83,7 +83,7 @@ export default function AdminView() {
 	}, [])
 
 	const handleArchive = (productId) => {
-		fetch(`http://localhost:4000/api/products/${productId}/archive`, {
+		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products/${productId}/archive`, {
 			method: "PATCH",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -103,7 +103,7 @@ export default function AdminView() {
 
 	const handleUnarchive = (productId) =>{
 		
-		fetch(`http://localhost:4000/api/products/${productId}/unarchive`, {
+		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products/${productId}/unarchive`, {
 			method: "PATCH",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -123,7 +123,7 @@ export default function AdminView() {
 
 	const handleDelete = (productId) => {
 		
-		fetch(`http://localhost:4000/api/products/${productId}/delete-product`, {
+		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products/${productId}/delete-product`, {
 			method: "DELETE",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
