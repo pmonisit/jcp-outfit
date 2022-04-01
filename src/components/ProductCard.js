@@ -11,7 +11,6 @@ export default function ProductCard({productProp}){
 				<Row>
 					<Col>	
 						<Card className="m-5" style={{ width: '18rem' }}>
-		 				<Card.Img variant="top" src="holder.js/100px180" />
 		  				<Card.Body>
 		    			<Card.Title>{productName}</Card.Title>
 		    			<Card.Text>

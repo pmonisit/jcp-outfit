@@ -6,8 +6,8 @@ import {Navbar, Container, Nav} from 'react-bootstrap'
 export default function Footer(){
 	return (
 	
-	<div className="bg-info marginTop: '50px' fixed-bottom text-white d-flex justify-content-center align-items-center mt-3">
-	  <p className="m-1 font-weight-bold">Prince Andwill &#64; Online Ordering | 2022 &#169;</p>
+	<div className="bg-dark marginTop: '50px' fixed-bottom text-white d-flex justify-content-center align-items-center mt-3">
+	  <p className="m-1">Capstone-3 | E-Commerce Site by Prince Andwill &#169; | 2022 </p>
 	</div>
 	)
 }

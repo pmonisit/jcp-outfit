@@ -1,5 +1,7 @@
 import { useReducer, useEffect } from 'react'
 
+
+
 import {
   BrowserRouter,
   Routes,
@@ -13,6 +15,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Logout from './pages/Logout'
+import Cart from './pages/Cart'
 import Register from './pages/Register'
 import NotFound from './pages/NotFound'
 import Products from './pages/Products'
@@ -42,6 +45,7 @@ function App() {
           <Route path="/" element={ <Home/> } />   
           <Route path="/login" element={ <Login/> } />
           <Route path="/logout" element={ <Logout/> } />
+          <Route path="/cart" element={ <Cart/> } />
           <Route path="/register" element={ <Register/> } />
           <Route path="/products" element={ <Products/> } />
           <Route path="/add-product" element={ <AddProduct/> } />
