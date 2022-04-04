@@ -16,7 +16,7 @@ export default function UpdateProduct (){
 
 
 	useEffect( async () => {
-		let result = await fetch (`http://localhost:4001/api/products/${params.id}`, {
+		let result = await fetch (`https://jcp-outfit.herokuapp.com/api/products/${params.id}`, {
 			method: "GET",
 			headers: {
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
