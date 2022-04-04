@@ -23,7 +23,7 @@ export default function Login(){
 	const loginUser = (e) => {
 		e.preventDefault()
 
-		fetch('https://enigmatic-basin-10137.herokuapp.com/api/users/login', {
+		fetch('https://jcp-outfit.herokuapp.com/api/users/login', {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -41,7 +41,7 @@ export default function Login(){
 				localStorage.setItem('token', response.token)
 				const token = localStorage.getItem("token")
 
-				fetch('https://enigmatic-basin-10137.herokuapp.com/api/users/profile', {
+				fetch('https://jcp-outfit.herokuapp.com/api/users/profile', {
 					method: "GET",
 					headers: {
 						"Authorization": `Bearer ${token}`

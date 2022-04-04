@@ -29,7 +29,7 @@ export default function AddCourse(){
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
-		fetch('https://enigmatic-basin-10137.herokuapp.com/api/products/add-product',{
+		fetch('https://jcp-outfit.herokuapp.com/api/products/add-product',{
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -46,9 +46,9 @@ export default function AddCourse(){
 		.then(response => {
 			console.log(response)
 			if(response){
+				console.log(response)
 
 				alert('Added successfully!')
-
 				navigate('/products')
 			}else{
 				alert('Product Already Exist!')
@@ -66,8 +66,10 @@ export default function AddCourse(){
 					    	<Form.Control
 					    		placeholder="Product Name"
 					    		type="text" 
+					    		required
 					    		value={productName}
-					    		onChange={ (e) => setProductName(e.target.value) }
+					    		onChange={ (e) => setProductName(e.target.value) 
+					    		}
 					    		
 					    	/>
 						</Form.Group>
@@ -78,6 +80,7 @@ export default function AddCourse(){
 					    		placeholder="Product Description"
 					    		type="text" 
 					    		value={description}
+					    		required
 					    		onChange={ (e) => setDescription(e.target.value) }
 					    		
 					    	/>
@@ -89,6 +92,7 @@ export default function AddCourse(){
 					    		placeholder="Course Price"
 					    		type="number" 
 					    		value={price}
+					    		required
 					    		onChange={ (e) => setPrice(e.target.value) }
 					    	/>
 						</Form.Group>

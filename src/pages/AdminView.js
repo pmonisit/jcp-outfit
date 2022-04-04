@@ -23,7 +23,7 @@ export default function AdminView() {
 
 
 	const fetchData = () => {
-		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products`, {
+		fetch(`https://jcp-outfit.herokuapp.com/api/products`, {
 			method: "GET",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -39,6 +39,7 @@ export default function AdminView() {
 				
 				return(
 					<tr key={product._id}>
+						<td>{product._id}</td>
 						<td>{product.productName}</td>
 						<td>{product.description}</td>
 						<td>Php: {product.price}</td>
@@ -97,7 +98,7 @@ export default function AdminView() {
 	}, [])
 
 	const handleArchive = (productId) => {
-		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products/${productId}/archive`, {
+		fetch(`https://jcp-outfit.herokuapp.com/api/products/${productId}/archive`, {
 			method: "PATCH",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -116,8 +117,8 @@ export default function AdminView() {
 	}
 
 	const handleUnarchive = (productId) =>{
-		
-		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products/${productId}/unarchive`, {
+		console.log(productId)
+		fetch(`https://jcp-outfit.herokuapp.com/api/products/${productId}/unarchive`, {
 			method: "PATCH",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -134,10 +135,10 @@ export default function AdminView() {
 			}
 		})
 	}
-
+	// https://enigmatic-basin-10137.herokuapp.com/api/products/${productId}/delete-product
 	const handleDelete = (productId) => {
-		
-		fetch(`https://enigmatic-basin-10137.herokuapp.com/api/products/${productId}/delete-product`, {
+		console.log(productId)
+		fetch(`https://jcp-outfit.herokuapp.com/api/products/${productId}/delete-product`, {
 			method: "DELETE",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -154,6 +155,7 @@ export default function AdminView() {
 			}
 		})
 	}
+
 
 	
 
@@ -179,7 +181,7 @@ export default function AdminView() {
 			<Table>
 				<thead>
 					<tr>
-						
+						<th>ID</th>
 						<th>Product Name</th>
 						<th>Description</th>
 						<th>Price</th>
