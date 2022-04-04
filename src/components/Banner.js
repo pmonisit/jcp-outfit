@@ -17,4 +17,5 @@ export default function Banner({bannerProp}){
     </div>
 	)
 }
+//
 

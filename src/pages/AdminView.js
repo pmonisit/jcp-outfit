@@ -15,13 +15,6 @@ export default function AdminView() {
 	const [qty, setQty] = useState(1)
 
 
-
-  /* MODAL - UPDATE PRODUCT */
-	const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-
 	const fetchData = () => {
 		fetch(`https://jcp-outfit.herokuapp.com/api/products`, {
 			method: "GET",
@@ -42,7 +35,7 @@ export default function AdminView() {
 						<td>{product._id}</td>
 						<td>{product.productName}</td>
 						<td>{product.description}</td>
-						<td>Php: {product.price}</td>
+						<td>{product.price}</td>
 						<td>{product.qty}</td>
 						<td>{product.isActive ? "Active" : "Inactive"}</td>
 						<td>
@@ -135,7 +128,6 @@ export default function AdminView() {
 			}
 		})
 	}
-	// https://enigmatic-basin-10137.herokuapp.com/api/products/${productId}/delete-product
 	const handleDelete = (productId) => {
 		console.log(productId)
 		fetch(`https://jcp-outfit.herokuapp.com/api/products/${productId}/delete-product`, {
@@ -156,8 +148,6 @@ export default function AdminView() {
 		})
 	}
 
-
-	
 
 	return(
 		<Fragment>
