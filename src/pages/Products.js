@@ -28,9 +28,18 @@ export default function Products(){
 				}
 				
 				setProducts(
-					response.map(products => {
+					response.map((products)  => {
 						// console.log(course)
-						return <ProductCard key={products._id} productProp={products}/>
+						return (
+							<div>
+							<ul className="products-container">	
+							<ProductCard 
+								key={products._id} 
+								productProp={products}/>
+							</ul>
+							</div>
+						)
+						
 					})
 				)
 			})

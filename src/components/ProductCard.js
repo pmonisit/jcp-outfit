@@ -1,42 +1,29 @@
-import {Fragment, useState, useEffect} from 'react'
-import {Container, Card, Row, Col, Button} from "react-bootstrap"
-import { Link } from 'react-router-dom'
-import "./CSS/Product.css";
+import {React} from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../store/cart-slice";
+import "./css/Product.css";
 
 export default function ProductCard({productProp}){
 
 	const { productName, description, price, _id } = productProp
-
-	return(
-		
-		<Container className="products-container mb-5" >
-		<div className="card">   
-					<h2>{productName}</h2>	      
-				      <p>{description}</p>
-				      <p>&#8369; {price}</p>
-				      <button>Add to cart</button>	 
-			       
-		 </div>
-		 </Container > 
-			/*<Container >
-			
-						
-						<Card className="card">
-		  				<Card.Body>
-		    			<Card.Title >{productName}</Card.Title>
-		    			<Card.Text>
-		      				{description}
-		    			</Card.Text>
-		    			<Card.Text >
-		      				Php: {price}
-		    			</Card.Text>
-		    			<Button variant="primary">Add to cart</Button>
-		  				</Card.Body>
-						</Card>
-					
-				
-			</Container>*/
-					
-			
+	
+	const dispatch = useDispatch()
+  	const addToCart = () => {
+    dispatch(
+      cartActions.addToCart({
+        productName,
+        _id,
+        price
+      })
+    )
+  }
+//
+	return(	
+			<div className="card">   
+      			<h2>{productName}</h2>
+	  			<h3>{description}</h3>
+      			<p>&#8369; {price}</p>
+     			<button onClick={addToCart}>Add to cart</button>
+    		</div>			
 	)
 }

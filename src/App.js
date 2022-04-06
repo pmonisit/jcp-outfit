@@ -1,7 +1,4 @@
 import { useReducer, useEffect } from 'react'
-
-
-
 import {
   BrowserRouter,
   Routes,
@@ -27,16 +24,14 @@ import UpdateUserInfo from './pages/UpdateUserInfo'
 /* Products */
 import AddProduct from './pages/AddProduct'
 import UpdateProduct from './pages/UpdateProduct'
-
-
-
-
+import { useSelector } from 'react-redux';
 
 
 function App() {
 
   const [ state, dispatch ] = useReducer( reducer, initialState )
-
+  const cartItems = useSelector((state) => state.cart.itemsList)
+	console.log(cartItems)
   return (
   <UserProvider value={{ state, dispatch }} >
       <BrowserRouter>
