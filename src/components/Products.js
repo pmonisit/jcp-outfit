@@ -1,16 +1,15 @@
 import React from "react";
-import Products from "./pages/Products";
+import Products from "./Products";
 
-const Products = () => {
+const Product = () => {
   return (
     <div>
       <ul className="products-container">
         {Products.map((product, index) => (
           <li key={index}>
             <Products
-              id={product.id}
-              name={product.name}
-              imgURL={product.imgURL}
+              _id={product._id}
+              productName={product.productName}
               price={product.price}
             />
           </li>
@@ -20,4 +19,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Product;

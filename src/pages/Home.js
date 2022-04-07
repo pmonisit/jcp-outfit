@@ -14,9 +14,9 @@ export default function Home(){
 	return (
 		// render navbar, banner & footer in the webpage via home.js
 	<Fragment>	
-		<Banner bannerProp={data}/>
+		{/* <Banner bannerProp={data}/> */}
+		<Banner />
 		<Highlights/>
 	</Fragment>
 	)
 }
-//

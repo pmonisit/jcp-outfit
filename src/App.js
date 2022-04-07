@@ -12,7 +12,6 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Logout from './pages/Logout'
-import Cart from './pages/Cart'
 import Register from './pages/Register'
 import NotFound from './pages/NotFound'
 import Products from './pages/Products'
@@ -25,7 +24,7 @@ import UpdateUserInfo from './pages/UpdateUserInfo'
 import AddProduct from './pages/AddProduct'
 import UpdateProduct from './pages/UpdateProduct'
 import { useSelector } from 'react-redux';
-
+import Layout from "./components/Layout";
 
 function App() {
 
@@ -35,12 +34,12 @@ function App() {
   return (
   <UserProvider value={{ state, dispatch }} >
       <BrowserRouter>
-        <AppNavbar/>          
+        <AppNavbar/>  
+                
         <Routes>
           <Route path="/" element={ <Home/> } />   
           <Route path="/login" element={ <Login/> } />
           <Route path="/logout" element={ <Logout/> } />
-          <Route path="/cart" element={ <Cart/> } />
           <Route path="/register" element={ <Register/> } />
           <Route path="/products" element={ <Products/> } />
           <Route path="/add-product" element={ <AddProduct/> } />

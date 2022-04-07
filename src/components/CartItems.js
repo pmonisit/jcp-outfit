@@ -1,6 +1,6 @@
 import React from "react";
 import CartItem from "./CartItem";
-import "./Cart.css";
+import "./css/Cart.css";
 import { useSelector } from "react-redux";
 
 const CartItems = () => {
@@ -19,7 +19,7 @@ const CartItems = () => {
            _id={item._id} 
            price={item.price} 
            total={item.totalPrice} 
-           name={item.name} 
+           productName={item.productName} 
           /> {" "}
          </li> 
        ))}

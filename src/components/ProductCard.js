@@ -1,5 +1,5 @@
-import {React} from 'react'
-import { useDispatch, useSelector } from "react-redux";
+import {React, Fragment} from 'react'
+import { useDispatch } from "react-redux";
 import { cartActions } from "../store/cart-slice";
 import "./css/Product.css";
 
@@ -19,11 +19,14 @@ export default function ProductCard({productProp}){
   }
 //
 	return(	
+		<Fragment>	
+			
 			<div className="card">   
       			<h2>{productName}</h2>
 	  			<h3>{description}</h3>
       			<p>&#8369; {price}</p>
      			<button onClick={addToCart}>Add to cart</button>
-    		</div>			
+    		</div>
+		</Fragment>			
 	)
 }

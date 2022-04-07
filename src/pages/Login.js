@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import UserContext from './../UserContext'
+import "./../components/css/Login.css"
 
 export default function Login(){
 
@@ -67,8 +68,7 @@ export default function Login(){
 	}
 
 	return(
-
-		<Container className="m-5">
+		<Container className="login">
 		 	<h3 className="text-center">Login</h3>
 			<Row className="justify-content-center">
 				<Col xs={12} md={6}>
