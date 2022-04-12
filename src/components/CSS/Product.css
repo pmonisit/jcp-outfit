@@ -1,6 +1,6 @@
 .products-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-content: center;
     align-items: center;
@@ -49,5 +49,9 @@
   }
   .orderBtn:hover {
     background: rgb(89, 0, 190);
+  }
+
+  .all-products{
+    text-align: center;
   }
   

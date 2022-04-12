@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext, React } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, Link, useParams, withRouter } from 'react-router-dom'
-
+import "./../components/css/UpdateProduct.css"
 
 export default function UpdateProduct (){
 
@@ -13,7 +13,6 @@ export default function UpdateProduct (){
 	  const [description, setDescription] = useState("");
 	  const [price, setPrice] = useState("");
 	  const [qty, setQty] = useState("");
-
 
 	useEffect( async () => {
 		let result = await fetch (`https://jcp-outfit.herokuapp.com/api/products/${params.id}`, {
@@ -31,6 +30,7 @@ export default function UpdateProduct (){
 	}, [])
 
 	const handleUpdate = () => {
+
    
 		fetch(`https://jcp-outfit.herokuapp.com/api/products/update-product/${params.id}`, {
 			method: "POST",
@@ -43,23 +43,25 @@ export default function UpdateProduct (){
 			description: description,
 			price: price,
 			qty: qty
+			
 		})
 	})
 		.then(result => result.json())
 			.then(result => {
 				console.log(result.productName)
-				if(result){
-					alert('Product successfully updated.')
-
+				if(result.productName === productName && result.description === description && result.price === price && result.qty === qty){
+					alert('No changes has been made.')
 					navigate('/products')
-				} else {
-					alert('Something went wrong. Please try again.')
+				} 
+				else {
+					alert('Product successfully updated.')
+					navigate('/products')
 				}
 			})
 	}	
 	return(
 
-		<Container className="container m-5">
+		<Container className="update-product-container">
 		 	<h1 className="text-center">Update Product</h1>
 			<Form>
 				<Row>
@@ -94,6 +96,7 @@ export default function UpdateProduct (){
 					    	/>
 						</Form.Group>
 					</Col>
+					
 				</Row>
 				<Row>
 					<Col xs={12}  md={12}>
@@ -109,14 +112,13 @@ export default function UpdateProduct (){
 				</Row>
 				<Row>
 					<Col xs={12}  md={2}>
-						<Button  className="btn btn-info btn-block"
+						<Button  className="btn btn-info btn-block mb-3"
 						onClick={()=>{handleUpdate(productDetails.id)}}>Save Changes</Button>
 					</Col>
-					<Col xs={12}  md={2}>
+					<Col xs={12}  md={3}>
 						<Link className="btn btn-info btn-block" to={`/products`}>Back to Dashboard</Link>
 					</Col>
 				</Row>
-				
 			</Form>
 		</Container>
 

@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
-import {Form, Button, Row, Col, Container} from 'react-bootstrap'
+import {Form, Button, Row, Col, Container, Image} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import "./../components/css/Register.css"
 
 export default function Register(){
 	const [fN, setFN] = useState("")
@@ -77,10 +78,17 @@ export default function Register(){
 	}
 
 	return(
-		<Container className="m-5">
+		
+		<Container className="register-body">
+
+		
+		<Container className="register">
 		 	<h3 className="text-center">Register</h3>
+			 <small id="emailHelp" class="form-text text-muted text-center mb-2">
+				 			Registered already? <a href='./login'>Login</a>
+			 </small>
 			<Row className="justify-content-center">
-				<Col xs={12} md={6}>
+				<Col xs={12} md={10}>
 					<Form onSubmit={(e) => registerUser(e) }>
 						<Form.Group className="mb-3">
 							<Form.Label>First Name</Form.Label>
@@ -133,9 +141,11 @@ export default function Register(){
 						>
 							Submit
 						</Button>
+						
 					</Form>
 				</Col>
 			</Row>
+		</Container>
 		</Container>
 	)
 }

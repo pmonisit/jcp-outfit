@@ -58,9 +58,7 @@ export default function Login(){
 
 				setEmail("")
 				setPW("")
-
 				navigate('/')
-
 			}else{
 				alert(`Incorrect email or password.`)
 			}
@@ -70,8 +68,9 @@ export default function Login(){
 	return(
 		<Container className="login">
 		 	<h3 className="text-center">Login</h3>
+			
 			<Row className="justify-content-center">
-				<Col xs={12} md={6}>
+				<Col xs={10} md={10}>
 					<Form onSubmit={(e) => loginUser(e) }>
 						<Form.Group className="mb-3">
 							<Form.Label>Email address</Form.Label>
@@ -98,6 +97,9 @@ export default function Login(){
 						>
 							Submit
 						</Button>
+						<small id="emailHelp" class="form-text text-muted">
+				 			Not yet registered? <a href='./register'>Register now</a>
+			 			</small>
 					</Form>
 				</Col>
 			</Row>

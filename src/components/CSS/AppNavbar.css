@@ -1,9 +1,10 @@
 .header-nav {
     overflow: hidden;
-    box-shadow: 0px 10px 20px #ccc;
+    box-shadow: 0px 10px 20px rgb(236, 235, 235);
     top: 0; 
     width: 100%;
     background-color: white;
+    margin-bottom: 20px;
     
   }
   .header-ul {

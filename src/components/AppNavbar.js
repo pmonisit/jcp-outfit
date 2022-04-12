@@ -15,10 +15,12 @@ export default function AppNavBar(){
 	useEffect( () => {
 		if(token){
 			dispatch({type: "USER", payload: true})
+			
 		} else {
 			dispatch({type: "USER", payload: null})
 		}
 	}, [])
+	
 
 	const NavLinks = () => {
 
@@ -26,8 +28,8 @@ export default function AppNavBar(){
 			return(
 				<Fragment>
 					<Nav.Link 
-						href="/logout" 
-						className="header-ul">Logout</Nav.Link>
+					href="/logout" 
+					className="header-ul">Logout</Nav.Link>
 				</Fragment>
 			)
 		} 
@@ -45,6 +47,9 @@ export default function AppNavBar(){
 		}
 	}
 
+
+	
+
 	return(
 
 		<Navbar expand="lg" className="header-nav" sticky="top">
@@ -53,14 +58,13 @@ export default function AppNavBar(){
 		      </Navbar.Brand>
 		  <Navbar.Toggle aria-controls="basic-navbar-nav" />
 		  <Navbar.Collapse id="basic-navbar-nav">
-		    <Nav className="mr-auto">
-		      <Nav.Link href="/" className="header-ul">Home</Nav.Link>
-		      <Nav.Link href="/products" className="header-ul">All Products</Nav.Link>
-			  <Nav.Link href="/products" className="header-ul">Black </Nav.Link>
-			  <Nav.Link href="/products" className="header-ul">White </Nav.Link>
-			  <Nav.Link href="/products" className="header-ul">Minimalist </Nav.Link>
-			  <Nav.Link href="/products" className="header-ul">Series Edition</Nav.Link>
-		       
+		    <Nav className="mr-auto">	
+			<Nav.Link href="/" className="header-ul">Home</Nav.Link>
+					<Nav.Link href="/products" className="header-ul">All Products</Nav.Link>
+					<Nav.Link href="/products" className="header-ul">About Us </Nav.Link>
+					<Nav.Link href="/products" className="header-ul">Gallery </Nav.Link>
+					<Nav.Link href="/products" className="header-ul">Product Reviews </Nav.Link>
+					<Nav.Link href="/products" className="header-ul">Contact Us</Nav.Link>
 		    </Nav>
 		    <Nav>
 		          <Nav.Link  className="header-ul">

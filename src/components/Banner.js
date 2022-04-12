@@ -12,7 +12,7 @@ export default function Banner(){
 	return(
     <Fragment>  
       <Carousel fade >
-        <Carousel.Item>
+        <Carousel.Item cla>
           <img
             className="d-block w-100"
             src="https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80"
@@ -34,23 +34,53 @@ export default function Banner(){
 
         </Carousel.Item>
     </Carousel>
-    <Container className="product-categories">
+    <Container className="product-categories" Fluid>
         <h1>Product Categories</h1>
+        <Row>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">Best Seller</Button>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">Black Shirt</Button>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">White Shirt</Button>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">Minimalist Design</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">Series Edition</Button>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">Anime Edition</Button>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">Baybayin Edition</Button>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">KPOP Edition</Button>
+          </Col>
+        </Row>
+        <Row className="last-row">
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">Cities Edition</Button>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">JCP Originals</Button>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">Tagalog Word Edition</Button>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Button variant="outline-secondary">Customize Design</Button>
+          </Col>
+        </Row>
     </Container>
-      
-     
- 
 
     </Fragment>
-    
-
-    // <div className="container">
-    //   <div className="banner">
-    //     <h1 className="display-4 text-center">{title}</h1>
-    //     <p className="lead text-center">{description}</p>
-    //     <a className="btn btn-outline-primary text-center" href={destination}>{buttonDesc}</a>
-    //   </div>
-    // </div>
 	)
 }
 
