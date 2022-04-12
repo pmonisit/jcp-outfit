@@ -30,7 +30,7 @@ export default function ProductCard({productProp}){
   }
 	return(	
 		<Fragment>	
-			<div className='product-container'>
+			<div className="d-flex">
 				<div className="card">   
 					<h2>{productName}</h2>
 					<h3>{description}</h3>
@@ -38,7 +38,6 @@ export default function ProductCard({productProp}){
 					<button onClick={addToCart}>Add to cart</button>
 				</div>
 			</div>
-			
 		</Fragment>			
 	)
 }
