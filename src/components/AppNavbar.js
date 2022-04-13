@@ -20,7 +20,6 @@ export default function AppNavBar(){
 			dispatch({type: "USER", payload: null})
 		}
 	}, [])
-	
 
 	const NavLinks = () => {
 
@@ -48,8 +47,6 @@ export default function AppNavBar(){
 	}
 
 
-	
-
 	return(
 
 		<Navbar expand="lg" className="header-nav" sticky="top">
@@ -60,16 +57,17 @@ export default function AppNavBar(){
 		  <Navbar.Collapse id="basic-navbar-nav">
 		    <Nav className="mr-auto">	
 			<Nav.Link href="/" className="header-ul">Home</Nav.Link>
+					
 					<Nav.Link href="/products" className="header-ul">All Products</Nav.Link>
 					<Nav.Link href="/products" className="header-ul">About Us </Nav.Link>
 					<Nav.Link href="/products" className="header-ul">Gallery </Nav.Link>
-					<Nav.Link href="/products" className="header-ul">Product Reviews </Nav.Link>
+					<Nav.Link href="/products" className="header-ul">Reviews </Nav.Link>
 					<Nav.Link href="/products" className="header-ul">Contact Us</Nav.Link>
 		    </Nav>
 		    <Nav>
 		          <Nav.Link  className="header-ul">
 				  		<Cart />
-		          </Nav.Link>   
+		          		</Nav.Link>   
 		          <NavLinks/>
 		    </Nav>
 		  </Navbar.Collapse>

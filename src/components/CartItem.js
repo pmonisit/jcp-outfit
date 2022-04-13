@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import "./css/Cart.css";
 import { cartActions } from "./../store/cart-slice";
@@ -18,11 +18,12 @@ const CartItem = ({ productName, quantity, total, price, _id }) => {
   }
 //
   return (
-    <div className="cartItem">
-      <h2> {productName}</h2>
-      <p>${price} /-</p>
-      <p>qty:{quantity}</p>
-      <article>Total ${total}</article>
+    <Fragment>
+      <div className="cartItem">
+      <h5><strong>{productName}</strong></h5>
+      <p>&#8369;{price}</p>
+      <p>Qty: {quantity}</p>
+      <article>Total: &#8369;{total}</article>
       <button className="cart-actions" onClick={decrementCartItems}>
         -
       </button>
@@ -30,6 +31,8 @@ const CartItem = ({ productName, quantity, total, price, _id }) => {
         +
       </button>
     </div>
+    </Fragment>
+   
   );
 };
 

@@ -20,7 +20,7 @@
     "web-vitals": "^2.1.4"
   },
    "engines": {
-    "node": "14.x",
+    "node": "17.6.0",
     "npm": "8.5.1"
   },
   "scripts": {

@@ -2,6 +2,8 @@ import {Fragment, useContext, useEffect, useState } from 'react'
 import AdminView from './AdminView'
 import ProductCard from './../components/ProductCard'
 import UserContext from './../UserContext'
+import "./../components/css/Product.css"
+
 const admin = localStorage.getItem('admin')
 const token = localStorage.getItem('token')
 
@@ -28,16 +30,18 @@ export default function Products(){
 				}
 				
 				setProducts(
-					response.map((products)  => {
-						// console.log(course)
+					response.map((products, index)  => {
+						
 						return (
 							<div>
-							<ul className="products-container">	
-							<ProductCard 
-								key={products._id} 
-								productProp={products}/>
-							</ul>
-							</div>
+								<ul className='products-container'>
+									<li key={index}>
+										<ProductCard 
+										key={products._id} 
+										productProp={products}/>
+									</li>
+								</ul>
+							</div>	
 						)
 						
 					})

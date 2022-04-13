@@ -10,30 +10,32 @@ li {
   cursor: pointer; 
 }
 .cart-container {
-  border: 1px solid black;
-  border-radius: 10px;
   margin: 20px;
   height: 400px;
   padding: 10px;
   overflow: scroll;
   overflow-x: hidden;
+  background-color: white;
+  font-size: 15px;
+  box-shadow: 0px 10px 20px rgb(60, 50, 50);
 }
-
 .cartItem {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   font-size: 20px;
   font-weight: bold;
-  background: #2f3c7e;
-  color: #fbeaeb;
+  color: #050101;
+  background: rgb(219, 217, 227);
 }
 .cart-actions {
   color: white;
   font-size: 20px;
   width: 50px;
   border: none;
-  background: rgb(10, 7, 24);
+  background: rgb(115, 88, 233);
+  height: 30px;
+  padding: 0%;
+  
 }
+

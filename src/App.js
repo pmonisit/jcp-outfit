@@ -35,13 +35,13 @@ function App() {
   <UserProvider value={{ state, dispatch }} >
       <BrowserRouter>
         <AppNavbar/>  
-                
         <Routes>
           <Route path="/" element={ <Home/> } />   
           <Route path="/login" element={ <Login/> } />
           <Route path="/logout" element={ <Logout/> } />
           <Route path="/register" element={ <Register/> } />
           <Route path="/products" element={ <Products/> } />
+          <Route path="/myCart" element={ <Layout/> } />
           <Route path="/add-product" element={ <AddProduct/> } />
           <Route path="/update-product/:id" element={ <UpdateProduct/> } />
           <Route path="/update-user/:id" element={ <UpdateUserInfo/> } />
