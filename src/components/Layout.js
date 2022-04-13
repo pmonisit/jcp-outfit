@@ -4,9 +4,12 @@ import "./css/Layout.css";
 import CartItems from "./CartItems";
 import { useSelector } from "react-redux";
 import AppNavBar from "./AppNavbar";
+import { useNavigate } from "react-router-dom";
 
 const Layout = () => {
   let total = 0;
+
+  const navigate = useNavigate()
 
   const itemsList = useSelector(state => state.cart.itemsList)
   
@@ -18,8 +21,10 @@ const Layout = () => {
   function placeOrder(){
     if(total === 0){
       alert("No item on your cart. Please add at least 1 item")
+      navigate("/products")
     }else{
       alert("Your order/s has been placed")
+      navigate("/products")
     }
   }
   
