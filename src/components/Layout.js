@@ -1,10 +1,11 @@
-import React from "react";
+import React, {Fragment} from "react";
 import Products from "./../pages/Products";
 import "./css/Layout.css";
 import CartItems from "./CartItems";
 import { useSelector } from "react-redux";
 import AppNavBar from "./AppNavbar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
+import Cart from "./Cart"
 import Swal from 'sweetalert2'
 
 const Layout = () => {
@@ -17,22 +18,49 @@ const Layout = () => {
   itemsList.forEach(item => {
     total += item.totalPrice
   })
-  const showCart = useSelector(state => state.cart.showCart)
-
+ 
   function placeOrder(){
     if(total === 0){
-      Swal.fire('No item on your cart. Please add at least 1 item')
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'No item on your cart. Please add at least 1 item',
+        showConfirmButton: true
+      })
       navigate("/products")
     }else{
-      Swal.fire("Your order/s has been placed")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your order/s has been placed',
+        showConfirmButton: false,
+        timer: 1500
+      })
       navigate("/products")
     }
   }
-  
+
+  function checkCart() {
+    if(total === 0){
+      return(
+        <Fragment>
+          <h4 className="text-center">
+           No item on your cart
+          </h4>
+        <Link className="text-center" to={"/products"}>
+          Go to store
+        </Link>
+        </Fragment>
+        
+        )
+    }else{
+        return <CartItems />
+    }
+  }
   return (
     <React.Fragment>
       <div className="layout">
-        {showCart && <CartItems />}
+        {checkCart()}
         <div className="total-price">
           <h3>Subtotal: &#8369;{total}</h3>
           <button className="orderBtn" onClick={placeOrder}>Place Order</button>

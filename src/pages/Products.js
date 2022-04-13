@@ -9,7 +9,6 @@ const token = localStorage.getItem('token')
 
 
 export default function Products(){
-
 	const { state, dispatch } = useContext(UserContext)
 	
 	const [products, setProducts] = useState([])
