@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../store/cart-slice";
 import { useNavigate } from 'react-router-dom';
 import "./css/Product.css";
+import Swal from 'sweetalert2'
+
 const token = localStorage.getItem('token')
 
 
@@ -14,6 +16,7 @@ export default function ProductCard({productProp}){
 	const dispatch = useDispatch()
 
   	const addToCart = () => {
+
 		if(token){
 			dispatch(
 				cartActions.addToCart({
@@ -23,8 +26,20 @@ export default function ProductCard({productProp}){
 				})
 			  )
 		}else{
-			alert("You need to login first")
-			navigate("/login")
+			Swal.fire({
+				title: 'You need to login',
+				text: "Do you want to login now?",
+				icon: 'info',
+				showCancelButton: true,
+				cancelButtonText: 'Maybe later',
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, Go to Login Page'
+			  }).then((result) => {
+				if (result.isConfirmed) {
+					navigate("/login")
+				}
+			  })
 		}
   }
 	return(	

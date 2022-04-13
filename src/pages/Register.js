@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import {Form, Button, Row, Col, Container, Image} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import "./../components/css/Register.css"
+import Swal from 'sweetalert2'
 
 export default function Register(){
 	const [fN, setFN] = useState("")
@@ -62,17 +63,30 @@ export default function Register(){
 					
 					// console.log(response)
 					if(response){
-						alert('Registration Successful.')
-
+						Swal.fire({
+							position: 'center',
+							icon: 'success',
+							title: 'Registration Success!',
+							showConfirmButton: false,
+							timer: 1500
+						  })
 						navigate('/login')
 					} else
 					{
-						alert('Something went wrong. Please try again')
+						Swal.fire({
+							icon: 'error',
+							title: 'Oops...',
+							text: 'Something went wrong. Please try again',
+						  })
 					}
 				})
 
 			} else{
-				alert(`Email is already exists. Try another one`)
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Email is already exists. Try another one',
+				  })
 			}
 		})
 	}

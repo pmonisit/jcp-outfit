@@ -2,6 +2,7 @@ import { useState, useEffect, useContext, React } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, Link, useParams, withRouter } from 'react-router-dom'
 import "./../components/css/UpdateProduct.css"
+import Swal from 'sweetalert2'
 
 export default function UpdateProduct (){
 
@@ -49,14 +50,8 @@ export default function UpdateProduct (){
 		.then(result => result.json())
 			.then(result => {
 				console.log(result.productName)
-				if(result.productName === productName && result.description === description && result.price === price && result.qty === qty){
-					alert('No changes has been made.')
-					navigate('/products')
-				} 
-				else {
-					alert('Product successfully updated.')
-					navigate('/products')
-				}
+				Swal.fire('Product successfully updated.')
+					navigate('/products')	
 			})
 	}	
 	return(

@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button, FormLabel } from 'react-bootstrap'
 import { useNavigate, Link } from 'react-router-dom'
 import UserContext from './../UserContext'
 import "./../components/css/AddProduct.css"
+import Swal from 'sweetalert2'
 
 const token = localStorage.getItem('token')
 
@@ -48,10 +49,16 @@ export default function AddCourse(){
 			if(response){
 				console.log(response)
 
-				alert('Added successfully!')
+				Swal.fire({
+					position: 'center',
+					icon: 'success',
+					title: 'Product has been added',
+					showConfirmButton: false,
+					timer: 1500
+				  })
 				navigate('/products')
 			}else{
-				alert('Product Already Exist!')
+				Swal.fire('Product Already Exist!')
 			}
 		})
 	}

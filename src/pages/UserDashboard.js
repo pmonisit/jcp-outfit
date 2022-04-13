@@ -3,7 +3,7 @@ import { Container, Table, Button, Modal, Row, Form, Col } from 'react-bootstrap
 import UserContext from './../UserContext'
 import {Link} from 'react-router-dom'
 import "./../components/css/UserDashboard.css"
-
+import Swal from 'sweetalert2'
 export default function UserDashboard() {
 
 	const [allUsers, setAllUsers] = useState([])
@@ -101,7 +101,7 @@ export default function UserDashboard() {
 			if(response){
 				fetchData()
 
-				alert('Successfully set to Non-Admin')
+				Swal.fire('Successfully set to Non-Admin')
 			}
 		})
 	}
@@ -121,40 +121,44 @@ export default function UserDashboard() {
 			if(response){
 				fetchData()
 				
-				alert('Successfully set to Admin!')
+				Swal.fire('Successfully set to Admin!')
 			}
 		})
 	}
 
 	const handleDelete = (userId) =>{
 
-		const confirmDelete = confirm("Warning! This action cannot be undo. Are you sure you want to delete this User?")
-		console.log(userId)
-
-		if(confirmDelete){
-			fetch(`https://jcp-outfit.herokuapp.com/api/users/${userId}/delete-user`, {
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		  }).then((result) => {
+			if (result.isConfirmed) {
+				fetch(`https://jcp-outfit.herokuapp.com/api/users/${userId}/delete-user`, {
 			method: "DELETE",
 			headers:{
 				"Authorization": `Bearer ${localStorage.getItem('token')}`
 			}
-		})
-		.then(response => response.json())
-		.then(response => {
-			console.log(response)
+			})
+			.then(response => response.json())
+			.then(response => {
+				console.log(response)
 
-			if(response){
-				fetchData()
-				
-				alert('User has been deleted!')
-			}
-		})
-	}else{
-		alert("This action has been cancelled");
-		
-	}		
+				if(response){
+					fetchData()
+					Swal.fire(
+						'Deleted!',
+						'User has been deleted.',
+						'success'
+					  )
+				}
+			})}
+		  })
 }
-
-
 	return(
 		<Fragment>
 		<Container className="user-container">

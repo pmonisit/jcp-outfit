@@ -5,6 +5,7 @@ import CartItems from "./CartItems";
 import { useSelector } from "react-redux";
 import AppNavBar from "./AppNavbar";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const Layout = () => {
   let total = 0;
@@ -20,10 +21,10 @@ const Layout = () => {
 
   function placeOrder(){
     if(total === 0){
-      alert("No item on your cart. Please add at least 1 item")
+      Swal.fire('No item on your cart. Please add at least 1 item')
       navigate("/products")
     }else{
-      alert("Your order/s has been placed")
+      Swal.fire("Your order/s has been placed")
       navigate("/products")
     }
   }

@@ -2,6 +2,7 @@ import { useState, useEffect, useContext, React } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, Link, useParams, withRouter } from 'react-router-dom'
 import "./../components/css/UpdateUserInfo.css"
+import Swal from 'sweetalert2'
 
 export default function UpdateUserInfo (){
 	  const params = useParams();
@@ -41,7 +42,7 @@ export default function UpdateUserInfo (){
 	})
 		.then(result => result.json())
 			.then(result => {
-				 	alert('User info has been updated')
+				Swal.fire('User info has been updated')
 					navigate('/user-dashboard')			
 			})
 	}	

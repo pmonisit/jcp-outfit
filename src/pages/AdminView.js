@@ -3,7 +3,7 @@ import { Container, Table, Button, Modal, Row, Form, Col, OverlayTrigger } from 
 import UserContext from './../UserContext'
 import {Link, useNavigate} from 'react-router-dom'
 import "./../components/css/ProductDashboard.css"
-
+import Swal from 'sweetalert2'
 export default function AdminView() {
 
 
@@ -99,7 +99,7 @@ export default function AdminView() {
 			if(response){
 				fetchData()
 
-				alert('Successfully moved to archive!')
+				Swal.fire('Successfully moved to archive!')
 			}
 		})
 	}
@@ -119,35 +119,42 @@ export default function AdminView() {
 			if(response){
 				fetchData()
 				
-				alert('This product is now available!')
+				Swal.fire('This product is now available!')
 			}
 		})
 	}
 	const handleDelete = (productId) => {
 		console.log(productId)
-		const confirmDelete = confirm("Warning! This action cannot be undo. Are you sure you want to delete this product?")
-
-		if(confirmDelete){
-			fetch(`https://jcp-outfit.herokuapp.com/api/products/${productId}/delete-product`, {
-			method: "DELETE",
-			headers:{
-				"Authorization": `Bearer ${localStorage.getItem('token')}`
-			}
-		})
-		.then(response => response.json())
-		.then(response => {
-			console.log(response)
-
-			if(response){
-				fetchData()
-				alert('Product successfully Deleted!')
-				
-			}
-		})
-		}else{
-			alert("This action has been cancelled");
-			
-		}	
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		  }).then((result) => {
+			if (result.isConfirmed) {
+				fetch(`https://jcp-outfit.herokuapp.com/api/products/${productId}/delete-product`, {
+					method: "DELETE",
+					headers:{
+						"Authorization": `Bearer ${localStorage.getItem('token')}`
+					}
+					})
+					.then(response => response.json())
+					.then(response => {
+					console.log(response)
+		
+					if(response){
+						fetchData()
+						Swal.fire(
+							'Deleted!',
+							'Product has been deleted.',
+							'success'
+						  )
+					}
+					})
+			}})
 	}
 
 

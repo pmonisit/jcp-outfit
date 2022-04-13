@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import UserContext from './../UserContext'
 import "./../components/css/Login.css"
+import Swal from 'sweetalert2'
 
 export default function Login(){
 
@@ -60,7 +61,7 @@ export default function Login(){
 				setPW("")
 				navigate('/')
 			}else{
-				alert(`Incorrect email or password.`)
+				Swal.fire(`Incorrect email or password.`)
 			}
 		})
 	}
