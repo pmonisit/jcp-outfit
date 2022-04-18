@@ -5,11 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import "./css/Product.css";
 import Swal from 'sweetalert2'
 
-const token = localStorage.getItem('token')
-
-
-
 export default function ProductCard({productProp}){
+
+	const token = localStorage.getItem('token')
 
 	const { productName, description, price, _id } = productProp
 	const navigate = useNavigate()
@@ -45,6 +43,7 @@ export default function ProductCard({productProp}){
 	return(	
 		<Fragment>	
 			<div className="card">   
+				<img src='https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'/>
 				<h2>{productName}</h2>
 				<h3>{description}</h3>
 				<p>&#8369; {price}</p>

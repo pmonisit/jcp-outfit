@@ -36,7 +36,9 @@ const Layout = () => {
         showConfirmButton: false,
         timer: 1500
       })
+     
       navigate("/products")
+ 
     }
   }
 
@@ -48,7 +50,7 @@ const Layout = () => {
            No item on your cart
           </h4>
         <Link className="text-center" to={"/products"}>
-          Go to store
+          Go shopping
         </Link>
         </Fragment>
         

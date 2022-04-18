@@ -19,6 +19,7 @@ import Products from './pages/Products'
 /* Users */
 import UserDashboard from './pages/UserDashboard'
 import UpdateUserInfo from './pages/UpdateUserInfo'
+import HomeDashboard from './pages/Home-Dashboard'
 
 /* Products */
 import AddProduct from './pages/AddProduct'
@@ -30,6 +31,8 @@ function App() {
 
   const [ state, dispatch ] = useReducer( reducer, initialState )
   const cartItems = useSelector((state) => state.cart.itemsList)
+  localStorage.setItem("cart", JSON.stringify(cartItems))
+
 	console.log(cartItems)
   return (
   <UserProvider value={{ state, dispatch }} >
@@ -41,6 +44,7 @@ function App() {
           <Route path="/logout" element={ <Logout/> } />
           <Route path="/register" element={ <Register/> } />
           <Route path="/products" element={ <Products/> } />
+          <Route path="/home-dashboard" element={ <HomeDashboard/> } />
           <Route path="/myCart" element={ <Layout/> } />
           <Route path="/add-product" element={ <AddProduct/> } />
           <Route path="/update-product/:id" element={ <UpdateProduct/> } />

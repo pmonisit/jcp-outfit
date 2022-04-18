@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, React } from 'react'
+import { useState, useEffect, React } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, Link, useParams, withRouter } from 'react-router-dom'
 import "./../components/css/UpdateUserInfo.css"
@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 
 export default function UpdateUserInfo (){
 	  const params = useParams();
-	  // console.log(params.id)
+	  console.log(params.id)
 	  const navigate = useNavigate()
 	  const [userDetails, setUserDetails] = useState([])
 	  const [firstName, setFirstName] = useState("")
@@ -25,6 +25,7 @@ export default function UpdateUserInfo (){
 		setFirstName(result.firstName)
 		setLastname(result.lastName)
 		setEmail(result.email)
+		console.log(result.firstName)
 	}, [])
 
 	const handleUpdate = () => {

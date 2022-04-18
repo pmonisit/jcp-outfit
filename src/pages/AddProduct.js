@@ -5,14 +5,17 @@ import UserContext from './../UserContext'
 import "./../components/css/AddProduct.css"
 import Swal from 'sweetalert2'
 
-const token = localStorage.getItem('token')
+
 
 export default function AddCourse(){
+
+	const token = localStorage.getItem('token')
 
 	const [productName, setProductName] = useState('')
 	const [description, setDescription] = useState('')
 	const [price, setPrice] = useState(0)
 	const [qty, setQty] = useState(1)
+	
 
 	const navigate = useNavigate()
 

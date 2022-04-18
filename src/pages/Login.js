@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 
 export default function Login(){
 
+	
 	const [ email, setEmail ] = useState("")
 	const [ pw, setPW ] = useState("")
 	const [ isDisabled, setIsDisabled ] = useState(true)
@@ -42,8 +43,9 @@ export default function Login(){
 
 				localStorage.setItem('token', response.token)
 				const token = localStorage.getItem("token")
+				
 
-				fetch('https://jcp-outfit.herokuapp.com/api/users/profile', {
+				fetch(`https://jcp-outfit.herokuapp.com/api/users/profile`, {
 					method: "GET",
 					headers: {
 						"Authorization": `Bearer ${token}`
@@ -53,13 +55,21 @@ export default function Login(){
 				.then(response => {
 
 					localStorage.setItem('admin', response.isAdmin)
+					
+					console.log(response.isAdmin)
+					if(response.isAdmin === true){
+						navigate('/home-dashboard')
+					}else{
+						navigate('/')
+					}	
 
 					dispatch({type: "USER", payload: true})
 				})
 
 				setEmail("")
 				setPW("")
-				navigate('/')
+				
+				
 			}else{
 				Swal.fire(`Incorrect email or password.`)
 			}

@@ -5,10 +5,14 @@ import UserContext from './../UserContext'
 import Cart from "./Cart";
 import "./css/AppNavbar.css";
 
-const token = localStorage.getItem('token')
-const admin = localStorage.getItem('admin')
+
+
 
 export default function AppNavBar(){
+
+	const token = localStorage.getItem('token')
+	const admin = localStorage.getItem('admin')
+	
 
 	const { state, dispatch } = useContext(UserContext)
 
@@ -22,15 +26,24 @@ export default function AppNavBar(){
 	}, [])
 
 	const NavLinks = () => {
+		if(state === true){	
 
-		if(state === true){
-			return(
-				<Fragment>
-					<Nav.Link 
-					href="/logout" 
-					className="header-ul">Logout</Nav.Link>
-				</Fragment>
-			)
+			if(admin === "false"){
+				return(
+					<Fragment>
+						<Nav.Link  className="header-ul">
+							<Cart />
+		          		</Nav.Link>   
+						<Nav.Link 
+						href="/logout" 
+						className="header-ul">Logout</Nav.Link>
+					</Fragment>
+				)
+			}else{
+				return(
+				<Nav.Link href="/logout" className="header-ul">Logout</Nav.Link>)
+			}
+				
 		} 
 		else {
 			return(
@@ -46,6 +59,24 @@ export default function AppNavBar(){
 		}
 	}
 
+	const CheckUser = () => {
+		if (admin === "true" && state === !null)
+		{
+			return(
+				<Nav.Link href="/products" className="header-ul">Dashboard</Nav.Link>
+			)
+			
+		}
+		else{
+			return(
+				<Fragment>
+					<Nav.Link href="/" className="header-ul">Home</Nav.Link>
+					<Nav.Link href="/products" className="header-ul">All Products</Nav.Link>
+				</Fragment>	
+			)	
+		}	
+	}
+
 
 	return(
 
@@ -56,18 +87,10 @@ export default function AppNavBar(){
 		  <Navbar.Toggle aria-controls="basic-navbar-nav" />
 		  <Navbar.Collapse id="basic-navbar-nav">
 		    <Nav className="mr-auto">	
-			<Nav.Link href="/" className="header-ul">Home</Nav.Link>
-					
-					<Nav.Link href="/products" className="header-ul">All Products</Nav.Link>
-					<Nav.Link href="/products" className="header-ul">About Us </Nav.Link>
-					<Nav.Link href="/products" className="header-ul">Gallery </Nav.Link>
-					<Nav.Link href="/products" className="header-ul">Reviews </Nav.Link>
-					<Nav.Link href="/products" className="header-ul">Contact Us</Nav.Link>
+				<CheckUser />
 		    </Nav>
 		    <Nav>
-		          <Nav.Link  className="header-ul">
-				  		<Cart />
-		          		</Nav.Link>   
+		          
 		          <NavLinks/>
 		    </Nav>
 		  </Navbar.Collapse>

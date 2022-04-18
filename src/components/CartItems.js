@@ -2,6 +2,7 @@ import React from "react";
 import CartItem from "./CartItem";
 import "./css/Cart.css";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const CartItems = () => {
 
@@ -10,6 +11,7 @@ const CartItems = () => {
   return (
     <div className="cart-container">
       <h2 className="text-center">My Cart</h2>
+      <Link className="text-center" to={"/products"}>Back to store</Link>
       <ul>
        {cartItems.map(item => (
          <li key={item._id}> 

@@ -4,14 +4,13 @@ import ProductCard from './../components/ProductCard'
 import UserContext from './../UserContext'
 import "./../components/css/Product.css"
 
-const admin = localStorage.getItem('admin')
-const token = localStorage.getItem('token')
-
-
 export default function Products(){
 	const { state, dispatch } = useContext(UserContext)
 	
 	const [products, setProducts] = useState([])
+
+	const admin = localStorage.getItem('admin')
+	const token = localStorage.getItem('token')
 
 	useEffect( () => {
 		if(admin === "false" || admin === null){
