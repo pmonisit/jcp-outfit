@@ -177,7 +177,7 @@ export default function AdminView() {
 				</svg>
 				User Dashboard</Link>
 			</div>
-			<Table>
+			<Table hover>
 				<thead>
 					<tr>
 						<th>Product Name</th>

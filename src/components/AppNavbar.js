@@ -1,5 +1,5 @@
 import { React, Fragment, useContext, useEffect } from 'react'
-import {Navbar, Container, Nav, Form, FormControl, NavDropdown, Button, Image } from 'react-bootstrap'
+import {Navbar, Nav} from 'react-bootstrap'
 import UserContext from './../UserContext'
 
 import Cart from "./Cart";

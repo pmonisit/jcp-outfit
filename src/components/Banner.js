@@ -1,6 +1,6 @@
 import {Fragment} from 'react';
 import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import "./css/Banner.css"
 
