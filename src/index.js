@@ -1,6 +1,6 @@
 import {React, Fragment} from 'react';
 import ReactDOM from 'react-dom';
-import "./components/css/Index.css";
+import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from "react-redux";
