@@ -2,7 +2,7 @@ import {Fragment, useContext, useEffect, useState } from 'react'
 import AdminView from './AdminView'
 import ProductCard from './../components/ProductCard'
 import UserContext from './../UserContext'
-import "./../components/css/Product.css"
+import "./../components/CSS/Product.css"
 
 export default function Products(){
 	const { state, dispatch } = useContext(UserContext)

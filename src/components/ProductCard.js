@@ -2,7 +2,7 @@ import {React, Fragment} from 'react'
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store/cart-slice";
 import { useNavigate } from 'react-router-dom';
-import "./css/Product.css";
+import "./CSS/Product.css";
 import Swal from 'sweetalert2'
 
 export default function ProductCard({productProp}){

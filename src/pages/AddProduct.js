@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { Container, Row, Col, Form, Button, FormLabel } from 'react-bootstrap'
 import { useNavigate, Link } from 'react-router-dom'
 import UserContext from './../UserContext'
-import "./../components/css/AddProduct.css"
+import "./../components/CSS/AddProduct.css"
 import Swal from 'sweetalert2'
 
 

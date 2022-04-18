@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import { Col, Container, Row, Card, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import "./../components/css/Home-Dashboard.css"
+import "./../components/CSS/Home-Dashboard.css"
 
 
 

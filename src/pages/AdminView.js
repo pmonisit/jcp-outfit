@@ -2,7 +2,7 @@ import { useEffect, useState, Fragment, useContext } from 'react'
 import { Container, Table, Button, Modal, Row, Form, Col, OverlayTrigger } from 'react-bootstrap'
 import UserContext from './../UserContext'
 import {Link, useNavigate} from 'react-router-dom'
-import "./../components/css/ProductDashboard.css"
+import "./../components/CSS/ProductDashboard.css"
 import Swal from 'sweetalert2'
 export default function AdminView() {
 

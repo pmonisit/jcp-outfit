@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import Products from "./../pages/Products";
-import "./css/Layout.css";
+import "./CSS/Layout.css";
 import CartItems from "./CartItems";
 import { useSelector } from "react-redux";
 import AppNavBar from "./AppNavbar";

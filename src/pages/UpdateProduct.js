@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext, React } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, Link, useParams, withRouter } from 'react-router-dom'
-import "./../components/css/UpdateProduct.css"
+import "./../components/CSS/UpdateProduct.css"
 import Swal from 'sweetalert2'
 
 export default function UpdateProduct (){

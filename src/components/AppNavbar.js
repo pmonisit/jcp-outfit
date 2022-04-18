@@ -2,7 +2,7 @@ import { React, Fragment, useContext, useEffect } from 'react'
 import {Navbar, Nav} from 'react-bootstrap'
 import UserContext from './../UserContext'
 import Cart from "./Cart";
-import "./css/AppNavbar.css";
+import "./CSS/AppNavbar.css";
 
 export default function AppNavBar(){
 

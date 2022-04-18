@@ -2,7 +2,7 @@ import { useEffect, useState, Fragment, useContext } from 'react'
 import { Container, Table, Button, Modal, Row, Form, Col } from 'react-bootstrap'
 import UserContext from './../UserContext'
 import {Link} from 'react-router-dom'
-import "./../components/css/UserDashboard.css"
+import "./../components/CSS/UserDashboard.css"
 import Swal from 'sweetalert2'
 export default function UserDashboard() {
 

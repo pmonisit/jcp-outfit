@@ -1,7 +1,7 @@
 import { useState, useEffect, React } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, Link, useParams, withRouter } from 'react-router-dom'
-import "./../components/css/UpdateUserInfo.css"
+import "./../components/CSS/UpdateUserInfo.css"
 import Swal from 'sweetalert2'
 
 export default function UpdateUserInfo (){

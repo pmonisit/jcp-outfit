@@ -2,7 +2,7 @@ import {Fragment} from 'react';
 import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-import "./css/Banner.css"
+import "./CSS/Banner.css"
 
 
 export default function Banner(){
