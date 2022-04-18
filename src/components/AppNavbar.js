@@ -1,15 +1,15 @@
 import { React, Fragment, useContext, useEffect } from 'react'
 import {Navbar, Nav} from 'react-bootstrap'
 import UserContext from './../UserContext'
-
 import Cart from "./Cart";
 import "./css/AppNavbar.css";
 
 export default function AppNavBar(){
 
+	
 	const token = localStorage.getItem('token')
 	const admin = localStorage.getItem('admin')
-	
+	// console.log(admin)
 
 	const { state, dispatch } = useContext(UserContext)
 
