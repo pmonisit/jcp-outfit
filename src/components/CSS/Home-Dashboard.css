@@ -1,4 +1,23 @@
 .home-dashboard{
     text-align: center;
     font-family: Gabriola;
+    font-size: 70px;
+}
+.users{
+    background-image: url("./../images/users-icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200px;
+}
+.products{
+    background-image: url("./../images/products-icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200px;
+}
+.orders{
+    background-image: url("./../images/orders-icon.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200px;
 }

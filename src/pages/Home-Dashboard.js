@@ -1,6 +1,8 @@
 import { Fragment } from "react"
-import { Container } from "react-bootstrap"
+import { Col, Container, Row, Card, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import "./../components/css/Home-Dashboard.css"
+
 
 
 
@@ -25,6 +27,34 @@ export default function HomeDashboard() {
             <h2 className="home-dashboard">
              Welcome to JCP Dashboard
             </h2>
+            <Container xs={12} className="categories">
+                <Row>
+                    <Col > 
+                    <Card style={{ width: '18rem' }} className="users">
+                        <Card.Body >
+                            <Card.Title className="text-center">Users</Card.Title>
+                            <Link to={'/user-dashboard'}>Go to Users Board</Link>
+                        </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col>
+                    <Card style={{ width: '18rem' }} className="products">
+                        <Card.Body>
+                            <Card.Title className="text-center">Products</Card.Title> 
+                            <Link to={'/products'}>Go to Products Board</Link>
+                        </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col>
+                    <Card style={{ width: '18rem' }} className="orders">
+                        <Card.Body>
+                            <Card.Title className="text-center">Orders</Card.Title>
+                            <Link to={'/products'}>In Progress</Link>
+                        </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
         </Fragment>   
         </Container>
         

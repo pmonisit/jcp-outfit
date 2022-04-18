@@ -34,15 +34,18 @@ function App() {
   localStorage.setItem("cart", JSON.stringify(cartItems))
 
 	console.log(cartItems)
+  const token = localStorage.getItem('token')
+
+
   return (
   <UserProvider value={{ state, dispatch }} >
       <BrowserRouter>
         <AppNavbar/>  
         <Routes>
-          <Route path="/" element={ <Home/> } />   
-          <Route path="/login" element={ <Login/> } />
+          <Route path="/" element={ <Home/> } /> 
+          {!token && <Route path="/login" element={ <Login/> } />}
           <Route path="/logout" element={ <Logout/> } />
-          <Route path="/register" element={ <Register/> } />
+          {!token && <Route path="/register" element={ <Register/> } />}
           <Route path="/products" element={ <Products/> } />
           <Route path="/home-dashboard" element={ <HomeDashboard/> } />
           <Route path="/myCart" element={ <Layout/> } />

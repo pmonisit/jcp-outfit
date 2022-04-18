@@ -113,6 +113,7 @@ export default function AddCourse(){
 					    	<Form.Control
 					    		type="number" 
 					    		value={qty}
+								min={1}
 					    		onChange={ (e) => setQty(e.target.value) }   		
 					    	/>
 						</Form.Group>

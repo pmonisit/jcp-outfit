@@ -56,8 +56,8 @@ export default function Login(){
 
 					localStorage.setItem('admin', response.isAdmin)
 					
-					console.log(response.isAdmin)
-					if(response.isAdmin === true){
+					
+					if(response.isAdmin === true ){
 						navigate('/home-dashboard')
 					}else{
 						navigate('/')

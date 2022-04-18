@@ -5,9 +5,6 @@ import UserContext from './../UserContext'
 import Cart from "./Cart";
 import "./css/AppNavbar.css";
 
-
-
-
 export default function AppNavBar(){
 
 	const token = localStorage.getItem('token')
@@ -31,9 +28,9 @@ export default function AppNavBar(){
 			if(admin === "false"){
 				return(
 					<Fragment>
-						<Nav.Link  className="header-ul">
-							<Cart />
-		          		</Nav.Link>   
+						 <Nav.Link  className="header-ul">
+						<Cart />
+		   			</Nav.Link>  
 						<Nav.Link 
 						href="/logout" 
 						className="header-ul">Logout</Nav.Link>
@@ -63,7 +60,7 @@ export default function AppNavBar(){
 		if (admin === "true" && state === !null)
 		{
 			return(
-				<Nav.Link href="/products" className="header-ul">Dashboard</Nav.Link>
+				<Nav.Link href="/home-dashboard" className="header-ul">Dashboard</Nav.Link>
 			)
 			
 		}
@@ -72,11 +69,13 @@ export default function AppNavBar(){
 				<Fragment>
 					<Nav.Link href="/" className="header-ul">Home</Nav.Link>
 					<Nav.Link href="/products" className="header-ul">All Products</Nav.Link>
+					
 				</Fragment>	
 			)	
 		}	
 	}
 
+	
 
 	return(
 
@@ -89,8 +88,7 @@ export default function AppNavBar(){
 		    <Nav className="mr-auto">	
 				<CheckUser />
 		    </Nav>
-		    <Nav>
-		          
+		    <Nav>        
 		          <NavLinks/>
 		    </Nav>
 		  </Navbar.Collapse>
